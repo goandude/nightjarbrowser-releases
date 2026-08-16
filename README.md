@@ -11,9 +11,13 @@ that needs no GitHub account. The source is developed separately.
 
 ## What you need
 
-- **macOS:** an Apple Silicon Mac (M1 or later) on macOS 13 or newer. Intel
-  Macs are not supported — there is no unified memory or Apple Silicon GPU for
-  the model to use, so it would run on CPU at single-digit tokens per second.
+- **macOS 26 or newer.** Checked rather than assumed: the bundled inference
+  engine is built with a minimum of macOS 26.0. On anything older the browser
+  installs and browses normally, then fails the first time you ask it a
+  question.
+- **An Apple Silicon Mac** (M1 or later). Intel is not supported — there is no
+  unified memory or Apple Silicon GPU, so the model would run on CPU at
+  single-digit tokens per second.
 - **Memory:** 8 GB minimum, 16 GB comfortable. The model is held in memory
   while you chat with it.
 - **Disk:** about 4 GB — roughly 110 MB for the app, the rest for the model it
@@ -27,11 +31,13 @@ is neither; it is unsigned. Removing the quarantine flag macOS attaches to
 anything downloaded is what gets past it:
 
 ```
-xattr -cr /Applications/JamunBrowser.app
+xattr -dr com.apple.quarantine /Applications/JamunBrowser.app
 ```
 
-That command changes nothing else about the app or your Mac. This step goes
-away once the build is signed and notarized.
+That command changes nothing else about the app or your Mac. If macOS still
+blocks it, open **System Settings → Privacy & Security** and click **Open
+Anyway** next to the message about JamunBrowser. Both steps go away once the
+build is signed and notarized.
 
 ## Reporting something broken
 
