@@ -1,4 +1,4 @@
-# Jamun Browser — downloads
+# Nightjar Browser — downloads
 
 A browser with a local AI that reads your pages without sending them anywhere.
 The model runs on your machine; pages you visit and questions you ask are never
